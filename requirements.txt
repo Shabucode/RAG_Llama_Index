@@ -1,0 +1,7 @@
+llama-index
+openai
+tqdm
+beautifulsoup4
+requests
+html2text
+faiss-cpu
