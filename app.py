@@ -9,8 +9,8 @@ load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 urls = [
-    "https://www.wearethemis.com/uk/",
-    "https://www.wearethemis.com/uk/about/team/"
+    "https://xxx.com",
+    "https://xxx/about/team/"
 ]
 # 1. Load webpage
 documents = SimpleWebPageReader(html_to_text=True).load_data(urls)
