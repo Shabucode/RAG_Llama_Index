@@ -21,4 +21,4 @@ else:
 #either way, we can query the index
 query_engine = index.as_query_engine()
 response = query_engine.query("What is attention all you need?")
-print(response)
+#print(response)
