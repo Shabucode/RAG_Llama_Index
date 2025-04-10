@@ -1,5 +1,4 @@
 .env
 venv/
 .vscode/
-rag_with_pdf
-rag_with_persistent_storage
+

@@ -20,5 +20,5 @@ index = VectorStoreIndex.from_documents(documents)
 
 # 3. Query
 query_engine = index.as_query_engine()
-response = query_engine.query("Tell me the names of the officers in the organisation and what are their position and who is UBO?")
+response = query_engine.query("Tell me about the website?")
 print(response)
