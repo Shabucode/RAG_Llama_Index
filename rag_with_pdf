@@ -1,0 +1,27 @@
+from llama_index import VectorStoreIndex, SimpleDirectoryReader
+from llama_index import VectorIndexRetriever
+from llama_index.query_engine import RetrieverQueryEngine
+from llama_index.indices.postprocessor import SimilarityPostprocessor
+from llama_index.response.pprint_utils import pprint_response
+import os.path
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+
+documents = SimpleDirectoryReader('data').load_data()
+index = VectorStoreIndex.from_documents(documents, show_progress=True)
+# query_engine = index.as_query_engine()
+
+retriever=VectorIndexRetriever(index=index, similarity_top_k=3)
+postprocessor = SimilarityPostprocessor(similarity_cutoff=0.8)
+
+query_engine = RetrieverQueryEngine(retriever=retriever, node_postprocessors=[postprocessor])
+
+response=query_engine.query("What is attention all you need?")
+pprint_response(response, show_source=True)
+print(response)
+
+
+
